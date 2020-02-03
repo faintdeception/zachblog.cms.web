@@ -1,9 +1,0 @@
-/* ==========================================================================
-   #TABLE/BORDERED
-   ========================================================================== */
-
-.table--bordered {
-    @include themify($themes) {
-        border: $table-border-width solid themed('color.border');
-    }
-}
