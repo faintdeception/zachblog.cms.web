@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zachblog.cms.web", "zachblog.cms.web\zachblog.cms.web.csproj", "{3EFA9BFF-0E3A-4D89-95C5-B1F9F957FFCE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZachsBlogTheme", "ZachsBlogTheme\ZachsBlogTheme.csproj", "{51ACFBE1-92E0-4C60-B1BE-7462359F6A32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EFA9BFF-0E3A-4D89-95C5-B1F9F957FFCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFA9BFF-0E3A-4D89-95C5-B1F9F957FFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFA9BFF-0E3A-4D89-95C5-B1F9F957FFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFA9BFF-0E3A-4D89-95C5-B1F9F957FFCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51ACFBE1-92E0-4C60-B1BE-7462359F6A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51ACFBE1-92E0-4C60-B1BE-7462359F6A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51ACFBE1-92E0-4C60-B1BE-7462359F6A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51ACFBE1-92E0-4C60-B1BE-7462359F6A32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A523D12-00E3-44E2-85DC-D6EACE243244}
+	EndGlobalSection
+EndGlobal

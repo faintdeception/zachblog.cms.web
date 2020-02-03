@@ -1,0 +1,125 @@
+2020-01-27 15:31:34.0267||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 15:31:34.1376||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 15:31:34.2266||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {d3689bbd-d884-4d8a-9ed9-2bbc48675005} may be persisted to storage in unencrypted form. 
+2020-01-27 15:40:48.7027||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 15:40:48.7550||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 15:40:48.7925||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {f3d9bf4d-e38a-4a41-baab-1ef51b44b99b} may be persisted to storage in unencrypted form. 
+2020-01-27 15:40:59.7940||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 15:40:59.7958|Default|80001e8f-0014-c600-b63f-84710c7967bb||Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|ERROR|Connection ID "14267403707019697806", Request ID "80001e8f-0014-c600-b63f-84710c7967bb": An unhandled exception was thrown by the application. System.ArgumentNullException: Value cannot be null. (Parameter 'provider')
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.BuildTenantPipeline() in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 93
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.InitializePipeline(ShellContext shellContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 79
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 62
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<Invoke>b__0(ShellScope scope) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore.Abstractions\Shell\Scope\ShellScope.cs:line 205
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()    at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.BuildTenantPipeline() in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 93
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.InitializePipeline(ShellContext shellContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 79
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 62
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<Invoke>b__0(ShellScope scope) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore.Abstractions\Shell\Scope\ShellScope.cs:line 205
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2020-01-27 15:40:59.7958|Default|80004328-0000-7500-b63f-84710c7967bb||Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer|ERROR|Connection ID "8430738504048198439", Request ID "80004328-0000-7500-b63f-84710c7967bb": An unhandled exception was thrown by the application. System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'IServiceProvider'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ThrowHelper.ThrowObjectDisposedException()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OrchardCore.Autoroute.Startup.Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.Autoroute\Startup.cs:line 75
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.<>c__DisplayClass8_0.<ConfigureTenantPipeline>b__1(IEndpointRouteBuilder routes) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 127
+   at Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder builder, Action`1 configure)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.ConfigureTenantPipeline(IApplicationBuilder appBuilder) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 125
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.<BuildTenantPipeline>b__7_0(IApplicationBuilder builder) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 102
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<Configure>b__0(IApplicationBuilder app) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.Diagnostics\DiagnosticsStartupFilter.cs:line 49
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c__DisplayClass1_0.<Configure>b__0(IApplicationBuilder app) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.ContentPreview\PreviewStartupFilter.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.BuildTenantPipeline() in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 110
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.InitializePipeline(ShellContext shellContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 79
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 62
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<Invoke>b__0(ShellScope scope) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore.Abstractions\Shell\Scope\ShellScope.cs:line 205
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()    at Microsoft.Extensions.DependencyInjection.ServiceLookup.ThrowHelper.ThrowObjectDisposedException()
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at OrchardCore.Autoroute.Startup.Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.Autoroute\Startup.cs:line 75
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.<>c__DisplayClass8_0.<ConfigureTenantPipeline>b__1(IEndpointRouteBuilder routes) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 127
+   at Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder builder, Action`1 configure)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.ConfigureTenantPipeline(IApplicationBuilder appBuilder) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 125
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.<BuildTenantPipeline>b__7_0(IApplicationBuilder builder) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 102
+   at OrchardCore.Diagnostics.DiagnosticsStartupFilter.<>c__DisplayClass3_0.<Configure>b__0(IApplicationBuilder app) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.Diagnostics\DiagnosticsStartupFilter.cs:line 49
+   at OrchardCore.ContentPreview.PreviewStartupFilter.<>c__DisplayClass1_0.<Configure>b__0(IApplicationBuilder app) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore.Modules\OrchardCore.ContentPreview\PreviewStartupFilter.cs:line 53
+   at Microsoft.AspNetCore.Mvc.Filters.MiddlewareFilterBuilderStartupFilter.<>c__DisplayClass0_0.<Configure>g__MiddlewareFilterBuilder|0(IApplicationBuilder builder)
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.BuildTenantPipeline() in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 110
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.InitializePipeline(ShellContext shellContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 79
+   at OrchardCore.Modules.ModularTenantRouterMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantRouterMiddleware.cs:line 62
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.<>c__DisplayClass4_0.<Invoke>b__0(ShellScope scope) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at OrchardCore.Environment.Shell.Scope.ShellScope.UsingAsync(Func`2 execute) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore.Abstractions\Shell\Scope\ShellScope.cs:line 205
+   at OrchardCore.Modules.ModularTenantContainerMiddleware.Invoke(HttpContext httpContext) in C:\Users\dbm82\source\repos\ZachRuffin_Website\OrchardCore\src\OrchardCore\OrchardCore\Modules\ModularTenantContainerMiddleware.cs:line 59
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2020-01-27 15:56:44.0865||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 15:58:43.5182||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 15:58:43.5608||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 15:58:43.5961||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {b9225bed-31ed-4c63-895c-f67472758162} may be persisted to storage in unencrypted form. 
+2020-01-27 16:04:41.9339||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 16:20:15.7439||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 16:20:15.7853||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 16:20:15.8204||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {9b338d1f-3789-4420-89fb-80f2ec18be62} may be persisted to storage in unencrypted form. 
+2020-01-27 16:28:12.8302||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 16:29:19.1282||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 16:29:19.1742||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 16:29:19.2111||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {aec69d5b-b87e-496c-91e9-ab0ced9931a0} may be persisted to storage in unencrypted form. 
+2020-01-27 16:48:17.8950||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 17:44:01.2513||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 17:44:01.2937||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 17:44:01.3306||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {f8d926a7-b3c0-45ca-9ff4-bdd5c75f1b5e} may be persisted to storage in unencrypted form. 
+2020-01-27 17:57:59.9013||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 19:16:30.0487||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 19:16:30.0938||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 19:16:30.1317||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {e0efc24b-035c-4493-af74-349760a17711} may be persisted to storage in unencrypted form. 
+2020-01-27 19:22:28.8035||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 19:25:10.9497||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 19:25:10.9892||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 19:25:11.0229||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {8ee0dc66-3ec6-4206-891d-4b0788e81681} may be persisted to storage in unencrypted form. 
+2020-01-27 19:39:09.8923||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 20:27:33.9725||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 20:27:34.0141||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 20:27:34.0483||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {c69147ab-dccf-4cce-90f2-afe9ef75d1d3} may be persisted to storage in unencrypted form. 
+2020-01-27 20:33:32.7718||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 20:52:32.7457||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 20:52:32.7868||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 20:52:32.8204||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {e5c3d5d6-dd33-4937-a231-c7aae92a8558} may be persisted to storage in unencrypted form. 
+2020-01-27 20:58:31.5231||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 21:29:23.4199||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 21:29:23.4721||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 21:29:23.5098||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {793cb31e-6cb3-41ea-8b0b-bee7ab2374fa} may be persisted to storage in unencrypted form. 
+2020-01-27 21:35:22.0295||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 21:47:51.8030||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 21:47:51.8389||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 21:47:51.8723||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {f6d89279-fc26-4a3e-8514-53da4e96527c} may be persisted to storage in unencrypted form. 
+2020-01-27 21:53:50.6050||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 22:22:50.8899||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 22:22:50.9300||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 22:22:50.9631||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {31befddb-a0e9-4f25-8c2f-621b954d0fc3} may be persisted to storage in unencrypted form. 
+2020-01-27 22:29:39.9873||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 22:41:27.3363||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 22:41:27.3917||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 22:41:27.4347||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {6d38d514-f769-49b9-9c7d-be50f94a4d49} may be persisted to storage in unencrypted form. 
+2020-01-27 22:53:25.7852||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 23:08:25.8536||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 23:08:25.8955||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 23:08:25.9297||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {93ab2848-3b6d-4dd3-bdec-22dc4528fb8d} may be persisted to storage in unencrypted form. 
+2020-01-27 23:16:24.7124||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 23:29:54.6349||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 23:29:54.6851||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 23:29:54.7352||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {01d707a8-58c1-4153-a5a8-1f0fd69c445a} may be persisted to storage in unencrypted form. 
+2020-01-27 23:41:53.2765||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 
+2020-01-27 23:44:05.4856||||Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository|WARN|Using an in-memory repository. Keys will not be persisted to storage. 
+2020-01-27 23:44:05.5253||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits. 
+2020-01-27 23:44:05.5581||||Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager|WARN|No XML encryptor configured. Key {c31d5f7f-ed0c-4865-96c0-a4f6c4f2f9ca} may be persisted to storage in unencrypted form. 
+2020-01-27 23:50:04.3347||||OrchardCore.Modules.ModularBackgroundService|ERROR|'ModularBackgroundService' is stopping. 

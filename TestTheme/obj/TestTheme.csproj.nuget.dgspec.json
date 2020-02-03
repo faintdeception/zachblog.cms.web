@@ -1,0 +1,73 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\dbm82\\source\\repos\\zachblog.cms.web\\TestTheme\\TestTheme.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\dbm82\\source\\repos\\zachblog.cms.web\\TestTheme\\TestTheme.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dbm82\\source\\repos\\zachblog.cms.web\\TestTheme\\TestTheme.csproj",
+        "projectName": "TestTheme",
+        "projectPath": "C:\\Users\\dbm82\\source\\repos\\zachblog.cms.web\\TestTheme\\TestTheme.csproj",
+        "packagesPath": "C:\\Users\\dbm82\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dbm82\\source\\repos\\zachblog.cms.web\\TestTheme\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dbm82\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\dbm82\\AppData\\Local\\Esri\\NuGet": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://packages.xenko.com/nuget": {},
+          "https://www.myget.org/F/orchardcore-preview/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "Etch.OrchardCore.ThemeBoilerplate": {
+              "target": "Package",
+              "version": "[0.5.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
