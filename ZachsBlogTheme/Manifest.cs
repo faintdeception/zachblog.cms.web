@@ -4,6 +4,6 @@ using OrchardCore.DisplayManagement.Manifest;
     Name = "ZachsBlogTheme",
     Author = "The Orchard Team",
     Website = "https://orchardproject.net",
-    Version = "0.0.6",
+    Version = "1.0.0",
     Description = "Based on The Blog Theme from Orchard Core CMS"
 )]
