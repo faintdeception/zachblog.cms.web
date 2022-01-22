@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.0.0-rc1-11692" />
+    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="1.2.2" />
     <PackageReference Include="OrchardCore.Logging.Serilog" Version="1.0.0-rc1-10004" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
