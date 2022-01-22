@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ Culture.Name }}">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G7VM2LEKNW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G7VM2LEKNW');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% page_title Site.SiteName, position: "before", separator: " - " %}</title>
@@ -28,10 +37,12 @@
 
     {% script src:"~/OrchardCore.Menu/Scripts/activate-links.min.js", debug_src:"~/OrchardCore.Menu/Scripts/activate-links.js", at:"Foot" %}
     {% script src:"~/ZachsBlogTheme/js/clean-blog-ext.min.js", debug_src:"~/ZachsBlogTheme/js/clean-blog-ext.js", at:"Foot" %}
-
+    {% script src:"~/ZachsBlogTheme/js/microsoft-clarity.js", debug_src:"~/ZachsBlogTheme/js/microsoft-clarity.js", at:"Foot" %}
+    
     {% resources type: "HeadScript" %}
     {% resources type: "HeadLink" %}
     {% resources type: "Stylesheet" %}
+
 
 </head>
 <body dir="{{ Culture.Dir }}">
