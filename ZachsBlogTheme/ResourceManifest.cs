@@ -1,12 +1,15 @@
+using Microsoft.Extensions.Options;
 using OrchardCore.ResourceManagement;
 
 namespace OrchardCore.Themes.ZachsBlogTheme
 {
-    public class ResourceManifest : IResourceManifestProvider
+    public class ResourceManagementOptionsConfiguration : IConfigureOptions<ResourceManagementOptions>
     {
-        public void BuildManifests(IResourceManifestBuilder builder)
+        private static ResourceManifest manifest;
+
+        static ResourceManagementOptionsConfiguration()
         {
-            var manifest = builder.Add();
+            manifest = new ResourceManifest();
 
             manifest
                 .DefineScript("ZachsBlogTheme-vendor-jQuery")
@@ -49,7 +52,7 @@ namespace OrchardCore.Themes.ZachsBlogTheme
                 .DefineStyle("ZachsBlogTheme-bootstrap-oc")
                 .SetUrl("~/ZachsBlogTheme/css/bootstrap-oc.min.css", "~/ZachsBlogTheme/css/bootstrap-oc.css")
                 .SetVersion("1.0.0");
-				
+
             manifest
                 .DefineStyle("ZachsBlogTheme-vendor-font-awesome")
                 .SetUrl("~/ZachsBlogTheme/vendor/fontawesome-free/css/all.min.css", "~/ZachsBlogTheme/vendor/fontawesome-free/css/all.css")
@@ -63,5 +66,11 @@ namespace OrchardCore.Themes.ZachsBlogTheme
                 .SetCdnIntegrity("sha384-QMu+Y+eu45Nfr9fmFOlw8EqjiUreChmoQ7k7C1pFNO8hEbGv9yzsszTmz+RzwyCh", "sha384-7/I8Wc+TVwiZpEjE4qTV6M27LYR5Dus6yPGzQZowRtgh+0gDW9BNR9GmII1/YwmG")
                 .SetVersion("5.10.2");
         }
+
+        public void Configure(ResourceManagementOptions options)
+        {
+            options.ResourceManifests.Add(manifest);
+        }
     }
+    
 }
