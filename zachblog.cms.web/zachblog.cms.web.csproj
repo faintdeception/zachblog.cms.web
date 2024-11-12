@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\zachblog.cms.starfleet\zachblog.cms.starfleet.csproj" />
     <ProjectReference Include="..\ZachsBlogTheme\ZachsBlogTheme.csproj" />
   </ItemGroup>
 

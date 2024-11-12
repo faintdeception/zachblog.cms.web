@@ -1,0 +1,16 @@
+@model IEnumerable<OrchardCore.ContentManagement.ContentItem>
+
+<h1>Starfleet Crew</h1>
+
+<form method="get">
+    <!-- Add filter options here -->
+    <button type="submit">Filter</button>
+</form>
+
+<ul>
+    @foreach (var member in Model)
+
+    {
+        <li>@member.DisplayText</li>
+    }
+</ul>
