@@ -1,7 +1,7 @@
 {% zone "Header" %}
     <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->    
-    <header class="masthead" style="background-image: url('{{ Model.ContentItem.Content.BlogPost.Background.Paths.first | asset_url }}')">
+    <!-- Set your background image for this header on the line below. -->
+    <header class="masthead" id="header-background" style="background-image: url('{{ Model.ContentItem.Content.BlogPost.Background.Paths.first | asset_url }}')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -23,3 +23,21 @@
 
 {{ Model.Content.ContentsMetadata | shape_render }}
 {{ Model.Content.MarkdownBodyPart | shape_render }}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var headerBackground = document.getElementById("header-background");
+        var currentBackground = headerBackground.style.backgroundImage;
+        window.status=currentBackground;
+        if (!currentBackground || currentBackground === 'url("")') {
+            var images = [
+                '/media/random-images/image1.jpg',
+                '/media/random-images/image2.jpg',
+                '/media/random-images/image3.jpg'
+                // Add more image paths as needed
+            ];
+            var randomImage = images[Math.floor(Math.random() * images.length)];
+            headerBackground.style.backgroundImage = 'url(' + randomImage + ')';
+        }
+    });
+</script>
