@@ -1,7 +1,15 @@
 <li class="nav-item {% if Model.HasItems %}dropdown{% endif %}">
     {% shape_clear_alternates Model %}
     {% shape_type Model "MenuItemLink" %}
+    
+    {% comment %}
+    Render the menu item link - OrchardCore will automatically choose the right template:
+    - MenuItemLink-LinkMenuItem.liquid for Link Menu Items
+    - MenuItemLink-ContentMenuItem.liquid for Content Menu Items
+    - etc.
+    {% endcomment %}
     {{ Model | shape_render }}
+    
     {% if Model.HasItems %}
         <ul class="dropdown-menu">
             {% for item in Model.Items %}

@@ -1,0 +1,18 @@
+{% assign contentLink = Model.ContentItem.Content.ContentMenuItemPart %}
+
+{% assign menuText = contentLink.Name %}
+{% if menuText == blank %}
+    {% assign menuText = Model.ContentItem.DisplayText %}
+{% endif %}
+{% if menuText == blank %}
+    {% assign menuText = contentLink.ContentItem.DisplayText %}
+{% endif %}
+{% if menuText == blank %}
+    {% assign menuText = "Content Item" %}
+{% endif %}
+
+{% if Model.HasItems %}
+    <a href="{{ contentLink.ContentItem | display_url }}" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ menuText }}<b class="caret"></b></a>
+{% else %}
+    <a class="nav-link" href="{{ contentLink.ContentItem | display_url }}">{{ menuText }}</a>
+{% endif %}

@@ -96,107 +96,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 async function loadFeaturedPhotos() {
-    const currentYear = new Date().getFullYear();
-    const currentMonth = new Date().getMonth() + 1;
-    
-    // Try current month first, then fallback to previous months
-    const monthsToTry = [currentMonth];
-    if (currentMonth > 1) monthsToTry.push(currentMonth - 1);
-    if (currentMonth > 2) monthsToTry.push(currentMonth - 2);
-    
-    let photos = [];
-    let foundMonth = null;
-    
-    for (const month of monthsToTry) {
-        const folderPath = `Featured-Photos/${currentYear}/${month}`;
-        const monthPhotos = await getPhotosFromFolder(folderPath);
+    try {
+        // Call our new API endpoint to get the latest photos
+        const response = await fetch('/api/photos/featured/latest');
+        const data = await response.json();
         
-        if (monthPhotos.length > 0) {
-            photos = monthPhotos;
-            foundMonth = month;
-            break;
+        if (data.photos && data.photos.length > 0) {
+            createCarousel(data.photos, data.month, data.year);
+            document.getElementById('loading-indicator').style.display = 'none';
+        } else {
+            document.getElementById('loading-indicator').style.display = 'none';
+            document.getElementById('error-message').classList.remove('d-none');
+            
+            // Update error message with current date info
+            const currentYear = new Date().getFullYear();
+            const currentMonth = new Date().getMonth() + 1;
+            document.querySelector('#error-message code').textContent = 
+                `/Featured-Photos/${currentYear}/${currentMonth}/`;
         }
-    }
-    
-    // If still no photos and we're early in the year, try December of previous year
-    if (photos.length === 0 && currentMonth <= 3) {
-        const folderPath = `Featured-Photos/${currentYear - 1}/12`;
-        const yearEndPhotos = await getPhotosFromFolder(folderPath);
-        if (yearEndPhotos.length > 0) {
-            photos = yearEndPhotos;
-            foundMonth = 12;
-        }
-    }
-    
-    if (photos.length > 0) {
-        createCarousel(photos, foundMonth);
-        document.getElementById('loading-indicator').style.display = 'none';
-    } else {
+    } catch (error) {
+        console.error('Error loading photos:', error);
         document.getElementById('loading-indicator').style.display = 'none';
         document.getElementById('error-message').classList.remove('d-none');
     }
 }
 
-async function getPhotosFromFolder(folderPath) {
-    try {
-        // Common image file extensions
-        const extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'JPG', 'JPEG', 'PNG', 'GIF', 'WEBP'];
-        
-        // Common image naming patterns
-        const baseNames = [
-            // numbered files
-            ...Array.from({length: 20}, (_, i) => (i + 1).toString()),
-            ...Array.from({length: 20}, (_, i) => (i + 1).toString().padStart(2, '0')),
-            // common prefixes
-            ...Array.from({length: 10}, (_, i) => `img${i + 1}`),
-            ...Array.from({length: 10}, (_, i) => `image${i + 1}`),
-            ...Array.from({length: 10}, (_, i) => `photo${i + 1}`),
-            ...Array.from({length: 10}, (_, i) => `pic${i + 1}`),
-            // common names
-            'DSC', 'IMG', 'PHOTO', 'PIC'
-        ];
-        
-        const photos = [];
-        
-        // Try different naming patterns
-        for (const baseName of baseNames) {
-            for (const ext of extensions) {
-                const filename = `${baseName}.${ext}`;
-                const fullPath = `/media/${folderPath}/${filename}`;
-                
-                if (await imageExists(fullPath)) {
-                    photos.push({
-                        url: fullPath,
-                        filename: filename,
-                        caption: `Featured Photo - ${baseName}`
-                    });
-                    
-                    // Limit to 10 photos to prevent too many requests
-                    if (photos.length >= 10) break;
-                }
-            }
-            if (photos.length >= 10) break;
-        }
-        
-        return photos;
-    } catch (error) {
-        console.error('Error loading photos:', error);
-        return [];
-    }
-}
-
-function imageExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-        // Set a timeout to avoid hanging
-        setTimeout(() => resolve(false), 3000);
-    });
-}
-
-function createCarousel(photos, month) {
+function createCarousel(photos, month, year) {
     const carouselInner = document.getElementById('carousel-inner');
     const carouselIndicators = document.getElementById('carousel-indicators');
     
@@ -210,14 +135,11 @@ function createCarousel(photos, month) {
         const carouselItem = document.createElement('div');
         carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
         carouselItem.innerHTML = `
-            <img src="${photo.url}" class="d-block w-100" alt="${photo.caption}" loading="lazy">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>${photo.caption}</h5>
-                <p>Featured Photos - ${new Date().getFullYear()}/${month}</p>
-            </div>
+            <img src="${photo.url}" class="d-block w-100" alt="${photo.caption || photo.filename}" loading="lazy">            
         `;
         carouselInner.appendChild(carouselItem);
-          // Create indicator
+        
+        // Create indicator
         const indicator = document.createElement('button');
         indicator.type = 'button';
         indicator.setAttribute('data-target', '#photo-carousel');
@@ -226,7 +148,8 @@ function createCarousel(photos, month) {
         indicator.setAttribute('aria-label', `Slide ${index + 1}`);
         carouselIndicators.appendChild(indicator);
     });
-      // Show the carousel
+    
+    // Show the carousel
     document.getElementById('photo-carousel').style.display = 'block';
     
     // Initialize Bootstrap 4 carousel

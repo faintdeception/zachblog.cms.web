@@ -1,0 +1,37 @@
+{% comment %}
+Generic fallback for any menu item type that doesn't have a specific template
+{% endcomment %}
+
+{% assign menuText = "Debug Menu Item" %}
+
+{% comment %}
+Try different ways to get the menu text
+{% endcomment %}
+{% if Model.ContentItem.Content.LinkMenuItemPart %}
+    {% assign link = Model.ContentItem.Content.LinkMenuItemPart %}
+    {% assign menuText = link.Name %}
+    {% assign menuUrl = link.Url %}
+{% elsif Model.ContentItem.Content.ContentMenuItemPart %}
+    {% assign contentLink = Model.ContentItem.Content.ContentMenuItemPart %}
+    {% assign menuText = contentLink.Name %}
+    {% assign menuUrl = contentLink.ContentItem | display_url %}
+{% else %}
+    {% assign menuText = Model.ContentItem.DisplayText %}
+    {% assign menuUrl = "#" %}
+{% endif %}
+
+{% comment %}
+Fallback if still no text
+{% endcomment %}
+{% if menuText == blank %}
+    {% assign menuText = Model.ContentItem.DisplayText %}
+{% endif %}
+{% if menuText == blank %}
+    {% assign menuText = "Unnamed Menu Item" %}
+{% endif %}
+
+{% if Model.HasItems %}
+    <a href="{{ menuUrl | href }}" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ menuText }}<b class="caret"></b></a>
+{% else %}
+    <a class="nav-link" href="{{ menuUrl | href }}">{{ menuText }}</a>
+{% endif %}
