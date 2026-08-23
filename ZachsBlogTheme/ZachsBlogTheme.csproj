@@ -18,7 +18,10 @@
     <PackageReference Include="OrchardCore.DisplayManagement" Version="2.2.1" />
     <PackageReference Include="OrchardCore.ResourceManagement" Version="2.2.1" />
 	<!-- Forcing other dependencies in the graph to use latest, can probably remove these after a bit. -->
-    <PackageReference Include="System.Text.Json" Version="10.0.1" />
+	<PackageReference Include="System.Text.Json" Version="10.0.1" />
+	<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" />
+	<PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.1.12-pre20260709125052" />
+	<PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
