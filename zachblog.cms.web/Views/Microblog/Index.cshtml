@@ -1,0 +1,81 @@
+@model zachblog.cms.web.Microblog.MicroblogIndexViewModel
+
+<div class="container" style="padding-top: 6rem; padding-bottom: 3rem;">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <h1>Tweets</h1>
+            <p><a href="~/tweets/feed.xml"><i class="fa fa-rss"></i> RSS</a></p>
+
+            @if (TempData["MicroblogError"] is string error)
+            {
+                <div class="alert alert-danger">@error</div>
+            }
+
+            @if (Model.CanPublish)
+            {
+                <form method="post" action="~/tweets" enctype="multipart/form-data" class="mb-5" id="tweet-form">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <textarea name="body" id="tweet-body" class="form-control" rows="4"
+                                  style="font-size:1.1rem" placeholder="What's happening?"></textarea>
+                        <small id="tweet-counter" class="form-text text-muted"
+                               data-limit="@Model.SoftCharacterLimit">0 / @Model.SoftCharacterLimit</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="images" id="tweet-images" accept="image/*" multiple class="form-control-file" />
+                        <div id="tweet-preview" class="mt-2"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Post</button>
+                </form>
+                <script>
+                    (function () {
+                        var body = document.getElementById('tweet-body');
+                        var counter = document.getElementById('tweet-counter');
+                        var limit = parseInt(counter.getAttribute('data-limit'), 10);
+                        body.addEventListener('input', function () {
+                            var n = body.value.length;
+                            counter.textContent = n + ' / ' + limit + (n > limit ? ' — over the limit by ' + (n - limit) : '');
+                            counter.className = 'form-text ' + (n > limit ? 'text-danger font-weight-bold' : 'text-muted');
+                        });
+                        var files = document.getElementById('tweet-images');
+                        var preview = document.getElementById('tweet-preview');
+                        files.addEventListener('change', function () {
+                            preview.innerHTML = '';
+                            Array.prototype.forEach.call(files.files, function (f) {
+                                var img = document.createElement('img');
+                                img.src = URL.createObjectURL(f);
+                                img.style.maxWidth = '100px';
+                                img.className = 'mr-2 mb-2';
+                                preview.appendChild(img);
+                            });
+                        });
+                    })();
+                </script>
+            }
+            else if (User.Identity?.IsAuthenticated != true)
+            {
+                <p class="text-muted"><a href="~/Login?ReturnUrl=%2Ftweets">Log in</a></p>
+            }
+
+            @foreach (var post in Model.Posts)
+            {
+                <div class="card mb-3" id="@post.ContentItemId">
+                    <div class="card-body">
+                        <p class="card-text" style="white-space: pre-wrap">@post.Body</p>
+                        @if (post.FirstImageUrl != null)
+                        {
+                            <img src="@post.FirstImageUrl?width=800" class="img-fluid mb-2" alt="" loading="lazy" />
+                        }
+                        <small class="text-muted">
+                            <time datetime="@post.CreatedUtc.ToString("o")">@post.CreatedUtc.ToString("MMM d, yyyy h:mm tt") UTC</time>
+                        </small>
+                    </div>
+                </div>
+            }
+            @if (!Model.Posts.Any())
+            {
+                <p>No tweets yet.</p>
+            }
+        </div>
+    </div>
+</div>
